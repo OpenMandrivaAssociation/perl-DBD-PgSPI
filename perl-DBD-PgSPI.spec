@@ -14,6 +14,7 @@ Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{pdir}/%{module}-%{versi
 Patch0:		perl-%{module}.includedir.patch
 Patch1:     DBI2.patch
 Url:		http://search.cpan.org/search?dist=%{module}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	perl-devel 
 BuildRequires:  perl-DBI
 BuildRequires:  postgresql-devel
