@@ -1,7 +1,7 @@
 %define module  DBD-PgSPI
 %define	name	perl-%{module}
 %define	version	0.02
-%define	release	%mkrel 8
+%define	release	%mkrel 10
 %define	pdir	DBD-PgSPI
 
 Summary:	PL/Perl PostgreSQL database driver for the DBI module
