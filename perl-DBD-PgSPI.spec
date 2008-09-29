@@ -1,23 +1,20 @@
 %define module  DBD-PgSPI
-%define	name	perl-%{module}
-%define	version	0.02
-%define	release	%mkrel 10
 %define	pdir	DBD-PgSPI
 
 Summary:	PL/Perl PostgreSQL database driver for the DBI module
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		perl-%{module}
+Version:	0.02
+Release:	%mkrel 11
 License:	GPL or Artistic
 Group:		Development/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{pdir}/%{module}-%{version}.tar.bz2
 Patch0:		perl-%{module}.includedir.patch
-Patch1:     DBI2.patch
+Patch1:		DBI2.patch
 Url:		http://search.cpan.org/search?dist=%{module}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	perl-devel 
 BuildRequires:  perl-DBI
 BuildRequires:  postgresql-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 DBD::PgSPI is a Perl module which works with the DBI module to provide access
@@ -29,13 +26,16 @@ This module is only intended for use by stored procedures written in 'plperl'
 programming language running inside PostgreSQL.
 
 %prep
+
 %setup -q -n %{module}-%{version}
 %patch0 -p0 -b .includedir
 %patch1 -p0 -b .dbi2
 
 %build
-export POSTGRES_HOME=%_includedir/pgsql
+export POSTGRES_HOME=%{_includedir}/postgresql
+
 CFLAGS="$RPM_OPT_FLAGS" %{__perl} Makefile.PL INSTALLDIRS=vendor
+
 %make
 
 %check
