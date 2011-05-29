@@ -3,7 +3,7 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 3
+Release:    %mkrel 4
 
 Summary:	PL/Perl PostgreSQL database driver for the DBI module
 License:	GPL+ or Artistic
