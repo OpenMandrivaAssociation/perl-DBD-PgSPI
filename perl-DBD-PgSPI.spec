@@ -1,8 +1,8 @@
-%define upstream_name    DBD-PgSPI
+%define upstream_name DBD-PgSPI
 %define upstream_version 0.02
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
 Release:	5
 
 Summary:	PL/Perl PostgreSQL database driver for the DBI module
@@ -16,9 +16,8 @@ Patch2:		DBD-PgSPI-0.02-postgresql9.patch
 Patch3:		DBD-PgSPI-0.02-add-missing-string-format-variables.patch
 
 BuildRequires:	perl-devel 
-BuildRequires:  perl-DBI
-BuildRequires:  postgresql-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-DBI
+BuildRequires:	postgresql-devel
 
 %description
 DBD::PgSPI is a Perl module which works with the DBI module to provide access
@@ -39,8 +38,7 @@ programming language running inside PostgreSQL.
 %build
 export POSTGRES_HOME=%{_includedir}/postgresql
 
-CFLAGS="$RPM_OPT_FLAGS" %{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
@@ -48,14 +46,9 @@ CFLAGS="$RPM_OPT_FLAGS" %{__perl} Makefile.PL INSTALLDIRS=vendor
 # make test
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%{makeinstall_std}
-
-%clean 
-rm -rf $RPM_BUILD_ROOT
+%makeinstall_std
 
 %files
-%defattr(644,root,root,755)
 %doc README 
 %{_mandir}/man*/*
 %{perl_vendorlib}/*
