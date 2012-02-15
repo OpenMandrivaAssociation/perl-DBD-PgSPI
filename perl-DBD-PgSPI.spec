@@ -12,6 +12,7 @@ Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/DBD/%{upstream_name}-%{upstream_version}.tar.bz2
 Patch0:		perl-%{upstream_name}.includedir.patch
 Patch1:		DBI2.patch
+Patch2:		DBD-PgSPI-0.02-postgresql9.patch
 
 BuildRequires:	perl-devel 
 BuildRequires:  perl-DBI
@@ -31,6 +32,7 @@ programming language running inside PostgreSQL.
 %setup -q -n %{upstream_name}-%{upstream_version}
 %patch0 -p0 -b .includedir
 %patch1 -p0 -b .dbi2
+%patch2 -p1 -b .postgresql9~
 
 %build
 export POSTGRES_HOME=%{_includedir}/postgresql
