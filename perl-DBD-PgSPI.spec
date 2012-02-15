@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Release:	6
 
 Summary:	PL/Perl PostgreSQL database driver for the DBI module
 License:	GPL+ or Artistic
@@ -16,7 +16,7 @@ Patch2:		DBD-PgSPI-0.02-postgresql9.patch
 Patch3:		DBD-PgSPI-0.02-add-missing-string-format-variables.patch
 
 BuildRequires:	perl-devel 
-BuildRequires:	perl-DBI
+BuildRequires:	perl(DBI)
 BuildRequires:	postgresql-devel
 
 %description
