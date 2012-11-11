@@ -1,0 +1,20 @@
+--- DBD-PgSPI-0.02/dbdimp.c.str_fmt~	2012-02-15 04:11:44.316248475 +0100
++++ DBD-PgSPI-0.02/dbdimp.c	2012-02-15 04:11:47.187251806 +0100
+@@ -431,7 +431,7 @@ pg_sql_type (imp_sth, name, sql_type)
+             return VARCHAROID;	/* varchar */
+         default:
+             if (DBIc_WARN(imp_sth) && imp_sth && name) {
+-                warn("SQL type %d for '%s' is not fully supported, bound as VARCHAR instead");
++                warn("SQL type %d for '%s' is not fully supported, bound as VARCHAR instead", sql_type, name);
+             }
+             return pg_sql_type(imp_sth, name, SQL_VARCHAR);
+     }
+@@ -461,7 +461,7 @@ dbd_rebind_ph (sth, imp_sth, phs)
+ 	} else {
+             PerlIO_printf(DBILOGFP, "NULL, ");
+         }
+- 	PerlIO_printf(DBILOGFP, "ptype %d, otype %d%s)\n", (int)SvTYPE(phs->sv), phs->ftype);
++ 	PerlIO_printf(DBILOGFP, "ptype %d, otype %d%s)\n", (int)SvTYPE(phs->sv), phs->ftype, val);
+     }
+ 
+     /* At the moment we always do sv_setsv() and rebind.        */

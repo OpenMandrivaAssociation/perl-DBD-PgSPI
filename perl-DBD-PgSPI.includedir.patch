@@ -1,0 +1,22 @@
+--- ./Makefile.PL.includedir	2001-06-22 04:18:50.000000000 +0200
++++ ./Makefile.PL	2005-03-12 22:14:38.551636121 +0100
+@@ -28,7 +28,7 @@
+ my %opts = (
+     NAME         => 'DBD::PgSPI',
+     VERSION_FROM => 'PgSPI.pm',
+-    INC          => "-I$POSTGRES_HOME/include -I$POSTGRES_HOME/backend -I$POSTGRES_HOME/interfaces/libpq -I$dbi_arch_dir",
++    INC          => "-I$POSTGRES_HOME/server -I$POSTGRES_HOME/include -I$POSTGRES_HOME/backend -I$POSTGRES_HOME/interfaces/libpq -I$dbi_arch_dir",
+     OBJECT       => "PgSPI\$(OBJ_EXT) dbdimp\$(OBJ_EXT)",
+     LIBS         => [],
+     AUTHOR       => 'Alex Pilosov (alex@pilosov.com)',
+--- ./PgSPI.h.includedir	2005-03-12 22:18:49.607716681 +0100
++++ ./PgSPI.h	2005-03-12 22:17:12.593234671 +0100
+@@ -23,7 +23,7 @@
+ #include "EXTERN.h"
+ #include "perl.h"
+ #include "XSUB.h"
+-#include "ppport.h"
++#include "dbipport.h"
+ 
+ #include <DBIXS.h>		/* installed by the DBI module	*/
+ 
