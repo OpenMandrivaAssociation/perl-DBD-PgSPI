@@ -8,7 +8,7 @@ Release:	8
 Summary:	PL/Perl PostgreSQL database driver for the DBI module
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/DBD/%{upstream_name}-%{upstream_version}.tar.bz2
 Patch0:		perl-%{upstream_name}.includedir.patch
 Patch1:		DBI2.patch
