@@ -15,6 +15,7 @@ Patch1:		DBI2.patch
 Patch2:		DBD-PgSPI-0.02-postgresql9.patch
 Patch3:		DBD-PgSPI-0.02-add-missing-string-format-variables.patch
 
+BuildRequires:	make
 BuildRequires:	perl-devel 
 BuildRequires:	perl(DBI)
 BuildRequires:	postgresql-devel
