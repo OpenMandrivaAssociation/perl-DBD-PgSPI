@@ -2,14 +2,14 @@
 %define upstream_version 0.02
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	8
+Version:	%{upstream_version}
+Release:	9
 
 Summary:	PL/Perl PostgreSQL database driver for the DBI module
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/DBD/%{upstream_name}-%{upstream_version}.tar.bz2
+Url:		https://metacpan.org/dist/DBD-PgSPI
+Source0:	https://cpan.metacpan.org/authors/id/A/AP/APILOS/DBD-PgSPI-%{upstream_version}.tar.gz
 Patch0:		perl-%{upstream_name}.includedir.patch
 Patch1:		DBI2.patch
 Patch2:		DBD-PgSPI-0.02-postgresql9.patch
