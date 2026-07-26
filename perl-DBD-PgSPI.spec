@@ -1,15 +1,13 @@
 %define upstream_name DBD-PgSPI
-%define upstream_version 0.02
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	9
+Version:	0.02
+Release:	10
 
 Summary:	PL/Perl PostgreSQL database driver for the DBI module
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/DBD-PgSPI
-Source0:	https://cpan.metacpan.org/authors/id/A/AP/APILOS/DBD-PgSPI-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/A/AP/APILOS/DBD-PgSPI-%{version}.tar.gz
 Patch0:		perl-%{upstream_name}.includedir.patch
 Patch1:		DBI2.patch
 Patch2:		DBD-PgSPI-0.02-postgresql9.patch
@@ -30,7 +28,7 @@ This module is only intended for use by stored procedures written in 'plperl'
 programming language running inside PostgreSQL.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 %patch0 -p0 -b .includedir
 %patch1 -p0 -b .dbi2
 %patch2 -p1 -b .postgresql9~
@@ -72,9 +70,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 
   + Jérôme Quelin <jquelin@mandriva.org>
     - force rebuild
-    - rebuild using %%perl_convert_version
-
-* Mon Sep 29 2008 Oden Eriksson <oeriksson@mandriva.com> 0.02-11mdv2009.0
+    - rebuild using %0.02 Mon Sep 29 2008 Oden Eriksson <oeriksson@mandriva.com> 0.02-11mdv2009.0
 + Revision: 289453
 - fix build
 
